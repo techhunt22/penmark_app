@@ -23,12 +23,18 @@ class ChangePasswordScreen extends StatefulWidget {
 
 class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
   final TextEditingController controller = TextEditingController();
-  final Widget background = SvgPicture.asset(
-    "assets/images/background2.svg",
-    fit: BoxFit.cover,
-    alignment: Alignment.topCenter,
-  );
+  late final Widget background;  // Use late final
 
+  @override
+  void initState() {
+    super.initState();
+    // Initialize in initState
+    background = SvgPicture.asset(
+      "assets/images/background2.svg",
+      fit: BoxFit.cover,
+      alignment: Alignment.topCenter,
+    );
+  }
   @override
   void dispose() {
     // Dispose controller to prevent memory leaks

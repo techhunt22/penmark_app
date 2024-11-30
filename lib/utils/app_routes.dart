@@ -1,14 +1,20 @@
 import 'package:coloring_app/src/view/auth/auth_screen.dart';
 import 'package:coloring_app/src/view/auth/components/forgot_password_screen.dart';
 import 'package:coloring_app/src/view/bottom_navigationbar.dart';
+import 'package:coloring_app/src/view/collection/collection_screen.dart';
+import 'package:coloring_app/src/view/mycreations/mycreation_screen.dart';
 import 'package:coloring_app/src/view/splash/splash_screen.dart';
 import 'package:go_router/go_router.dart';
 import '../src/view/auth/components/new_password_screen.dart';
 import '../src/view/auth/components/verification.dart';
 import '../src/view/notifications/notification_screen.dart';
+import '../src/view/orders/card_screen.dart';
+import '../src/view/orders/order_overview_screen.dart';
+import '../src/view/orders/order_receipt_screen.dart';
+import '../src/view/orders/payment_method_screen.dart';
+import '../src/view/orders/print_order_screen.dart';
 import '../src/view/profile/edit_profile/edit_profile.dart';
 import '../src/view/profile/help/help_support_screen.dart';
-import '../src/view/profile/orderhistory/components/order_detail_card.dart';
 import '../src/view/profile/orderhistory/order_details_screen.dart';
 import '../src/view/profile/orderhistory/order_history_screen.dart';
 import '../src/view/profile/recentactivity/recent_activity_screen.dart';
@@ -77,8 +83,35 @@ final GoRouter router = GoRouter(
       builder: (context, state) => const OrderHistoryScreen(),
     ),
     GoRoute(
+      path: '/mycreations',
+      builder: (context, state) => const MycreationScreen(),
+    ),
+    GoRoute(
+      path: '/templates',
+      builder: (context, state) => const TemplateCollectionScreen(),
+    ),
+    GoRoute(
       path: '/orderdetail',
       builder: (context, state) => const OrderDetailsScreen(),
+    ),
+    GoRoute(
+      path: '/printscreen',
+      builder: (context, state) => const PrintOrderScreen(),
+    ),
+    GoRoute(
+      path: '/orderoverview',
+      builder: (context, state) => const OrderOverviewScreen(),
+    ),
+    GoRoute(
+      path: '/paymentmethod',
+      builder: (context, state) => const PaymentMethodScreen(),
+    ),
+  GoRoute(
+      path: '/cardpayment',
+      builder: (context, state) => const CardPaymentScreen(),
+    ),GoRoute(
+      path: '/receipt',
+      builder: (context, state) => const OrderReceiptScreen(),
     ),
   ],
 );

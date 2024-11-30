@@ -1,9 +1,5 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
-
-import 'package:flutter_svg/svg.dart';
-
 import '../../../../constants/color_constants.dart';
 import '../../../../constants/font_family.dart';
 import '../../../../constants/font_size.dart';
@@ -90,7 +86,7 @@ class NotificationListWidget extends StatelessWidget {
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: Image.asset(
-                            "assets/icons/${img[index]}.png",
+                            "assets/icons/${img[index]}.png",color: AppColors.white,
                           ),
                         ),
                       ),

@@ -36,11 +36,18 @@ class _OtpScreenState extends State<OtpScreen> {
   final TextEditingController confirmPasswordController =
       TextEditingController();
 
-  final Widget background = SvgPicture.asset(
-    "assets/images/background2.svg",
-    fit: BoxFit.cover,
-    alignment: Alignment.topCenter,
-  );
+  late final Widget background;  // Use late final
+
+  @override
+  void initState() {
+    super.initState();
+    // Initialize in initState
+    background = SvgPicture.asset(
+      "assets/images/background2.svg",
+      fit: BoxFit.cover,
+      alignment: Alignment.topCenter,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {

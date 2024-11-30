@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../../../constants/color_constants.dart';
 import '../../../../constants/font_family.dart';
@@ -20,11 +19,18 @@ class OrderHistoryScreen extends StatefulWidget {
 
 class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
   final TextEditingController controller = TextEditingController();
-  final Widget background = SvgPicture.asset(
-    "assets/images/background2.svg",
-    fit: BoxFit.cover,
-    alignment: Alignment.topCenter,
-  );
+  late final Widget background;  // Use late final
+
+  @override
+  void initState() {
+    super.initState();
+    // Initialize in initState
+    background = SvgPicture.asset(
+      "assets/images/background2.svg",
+      fit: BoxFit.cover,
+      alignment: Alignment.topCenter,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {

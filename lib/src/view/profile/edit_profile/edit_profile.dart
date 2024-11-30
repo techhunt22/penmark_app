@@ -6,7 +6,6 @@ import 'package:coloring_app/utils/CustomWidgets/custom_buttons.dart';
 import 'package:coloring_app/utils/CustomWidgets/custom_textfields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../../../constants/size_constant.dart';
 import '../../widgets/appbar2.dart';
@@ -22,6 +21,18 @@ class EditProfileScreen extends StatefulWidget {
 class _EditProfileScreenState extends State<EditProfileScreen> {
   final TextEditingController controller = TextEditingController();
 
+  late final Widget background;  // Use late final
+
+  @override
+  void initState() {
+    super.initState();
+    // Initialize in initState
+    background = SvgPicture.asset(
+      "assets/images/background2.svg",
+      fit: BoxFit.cover,
+      alignment: Alignment.topCenter,
+    );
+  }
   @override
   void dispose() {
     // Dispose controller to prevent memory leaks
@@ -32,11 +43,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   @override
   Widget build(BuildContext context) {
 
-    final Widget background = SvgPicture.asset(
-      "assets/images/background2.svg",
-      fit: BoxFit.cover,   alignment: Alignment.topCenter,
-
-    );
 
     return Scaffold(
       resizeToAvoidBottomInset: true,
