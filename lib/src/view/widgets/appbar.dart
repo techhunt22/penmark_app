@@ -1,5 +1,4 @@
 import 'package:coloring_app/constants/responsive.dart';
-import 'package:coloring_app/src/view/auth/components/forgot_password_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -10,34 +9,32 @@ class AppbarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Row(
+    // final Widget logo =  SvgPicture.asset(
+    //   "assets/icons/svg/logo.svg",
+    //   alignment: Alignment.centerLeft,
+    // );
+
+    return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         SizedBox(
-            height: 77,
-            child: Image.asset("assets/icons/appbaricon.png")),
-
-        Spacer(),
-        Image.asset(
-          "assets/icons/profile.png",
-          height: 53,
+          height: context.h(90),
+          child: Image.asset(
+            "assets/icons/png/logo2.png",
+          )
         ),
-        SizedBox(
-          width: 15,
-        ),
-
         GestureDetector(
-          onTap: (){
+          onTap: () {
             context.push('/notification');
           },
           child: CircleAvatar(
-            radius: 22,
+              radius: 22,
               backgroundColor: AppColors.white,
               child: Image.asset(
-                "assets/icons/bell.png",
+                "assets/icons/png/bellicon.png",
               )),
         ),
-
       ],
     );
   }

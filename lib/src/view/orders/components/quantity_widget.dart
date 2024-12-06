@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../../../constants/color_constants.dart';
 import '../../../../constants/font_family.dart';
@@ -48,8 +49,8 @@ class _QuantityWidgetState extends State<QuantityWidget> {
               borderRadius: BorderRadiusDirectional.circular(14)),
           child: Row(
             children: [
-              Image.asset(
-                "assets/icons/cart.png",
+              SvgPicture.asset(
+                "assets/icons/svg/cart.svg",height: 20,
               ),
               const SizedBox(width: gap),
               Expanded(

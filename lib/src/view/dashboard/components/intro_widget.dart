@@ -26,6 +26,7 @@ class IntroWidget extends StatelessWidget {
         ),
         Text(
           "Explore our curated collection of exclusive coloring\ntemplates designed just for you!",
+
           style: TextStyle(
               fontWeight: AppFonts.regular, fontSize: context.isTablet ? AppFontSize.titlesmall :AppFontSize.bodysmall),
         ),

@@ -7,6 +7,7 @@ import '../../../constants/font_family.dart';
 import '../../../constants/font_size.dart';
 import '../../../constants/padding.dart';
 import '../../../constants/size_constant.dart';
+import '../widgets/back_button_widget.dart';
 import 'components/notification_tile.dart';
 
 class NotificationScreen extends StatelessWidget {
@@ -31,19 +32,7 @@ class NotificationScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    GestureDetector(
-                      onTap: () {
-                        context.pop();
-                      },
-                      child: CircleAvatar(
-                          radius: 23,
-                          backgroundColor: AppColors.white,
-                          child: Icon(
-                            Icons.arrow_back_outlined,
-                            color: AppColors.black,
-                            size: 20,
-                          )),
-                    ),
+                    BackButtonWidget(),
                     const SizedBox(
                       height: gap1,
                     ),

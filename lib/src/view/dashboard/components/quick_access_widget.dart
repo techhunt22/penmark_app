@@ -62,10 +62,10 @@ class QuickAccessWidget extends StatelessWidget {
                 "Order history",
               ];
               List icon = [
-                "assets/icons/mytemplates.svg",
-                "assets/icons/printicon.svg",
-                "assets/icons/orderhistory.svg",
-                "assets/icons/templates.svg",
+                "assets/icons/svg/mytemplates.svg",
+                "assets/icons/svg/printquickaccess.svg",
+                "assets/icons/svg/orderhistory.svg",
+                "assets/icons/svg/templates.svg",
               ];
 
               return Column(

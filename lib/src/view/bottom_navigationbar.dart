@@ -42,23 +42,24 @@ class BottomNavigationScreenState extends State<BottomNavigationScreen> {
         buttonBackgroundColor: _currentIndex == 3 ? AppColors.darkpurple: AppColors.darkblue,
 
         items: [
-          Image.asset("assets/icons/homebottombar.png",
+
+          Image.asset("assets/icons/png/homeicon.png",
               color: AppColors.white,
-            height: 46,
+            height: 40,
 
           ),
-          Image.asset("assets/icons/collectionbottombar.png",
+          Image.asset("assets/icons/png/templateicon.png",
               color: AppColors.white,
-            height: 46,
+            height: 40,
           ),
-          Image.asset("assets/icons/palettebottombar.png",
+          Image.asset("assets/icons/png/paletteicon.png",
               color:
                    AppColors.white,
-            height: 46,
+            height: 40,
           ),
-          Image.asset("assets/icons/personbottom.png",
+          Image.asset("assets/icons/png/profileicon.png",
               color: AppColors.white,
-            height: 46,
+            height: 40,
 
           ),
         ],

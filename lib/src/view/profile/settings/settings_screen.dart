@@ -36,7 +36,7 @@ class SettingsScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Appbar2(
-                      icon: "assets/icons/settingicon.png",
+                      icon: "assets/icons/svg/settingsicon.svg",
                       text: "Settings",
                     ),
                     SizedBox(
@@ -59,7 +59,7 @@ class SettingsScreen extends StatelessWidget {
                         img: "deleteaccount",
                         ontap: () {
                           showCustomDialog(context,
-                              img: "assets/icons/dialogdltaccount.png",
+                              img: "assets/icons/png/dialogdltaccount.png",
                               title: "Delete Account",
                               message: "Are you sure you want to delete your account? This action is irreversible and will permanently remove all your data, including your saved creations and order history.",
                               button1: "Cancel",

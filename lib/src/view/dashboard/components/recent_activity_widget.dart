@@ -48,7 +48,7 @@ class RecentActivityWidget extends StatelessWidget {
                     color: color[index].withOpacity(0.5),
                   ),
                   child: SvgPicture.asset(
-                    "assets/icons/recenticon.svg",
+                    "assets/icons/svg/recenticon.svg",
                     fit: BoxFit.scaleDown,
                   ),
                 ),

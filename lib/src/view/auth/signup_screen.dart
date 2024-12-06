@@ -21,6 +21,29 @@ class SignupScreen extends StatefulWidget {
 class _SignupScreenState extends State<SignupScreen> {
   final TextEditingController _controller = TextEditingController();
 
+  // Cache SVG widgets
+  final Widget personIcon = SvgPicture.asset(
+    "assets/icons/svg/person.svg",
+    height: 15,
+    width: 19,
+    fit: BoxFit.scaleDown,
+  );
+  final Widget mailIcon = SvgPicture.asset(
+    "assets/icons/svg/mail.svg",
+    height: 15,
+    width: 19,
+    fit: BoxFit.scaleDown,
+  );
+
+  final Widget lockIcon = SvgPicture.asset(
+    "assets/icons/svg/lock.svg",
+    height: 15,
+    width: 19,
+    fit: BoxFit.scaleDown,
+
+  );
+
+
   @override
   Widget build(BuildContext context) {
     final socialHeight = context.isTablet?  context.h(65) *0.7 :context.h(65);
@@ -35,12 +58,7 @@ class _SignupScreenState extends State<SignupScreen> {
             validator: (p0) {
               return null;
             },
-            icon: SvgPicture.asset(
-              "assets/icons/person.svg",
-              height: 15,
-              width: 19,
-              fit: BoxFit.scaleDown,
-            ),
+            icon:personIcon,
             hinttext: "Your name",
             title: "Full Name",
             titleon: true),
@@ -52,12 +70,7 @@ class _SignupScreenState extends State<SignupScreen> {
             validator: (p0) {
               return null;
             },
-            icon: SvgPicture.asset(
-              "assets/icons/mail.svg",
-              height: 15,
-              width: 19,
-              fit: BoxFit.scaleDown,
-            ),
+            icon: mailIcon,
             hinttext: "Email or phone number",
             title: "Email/Number",
             titleon: true),
@@ -72,12 +85,7 @@ class _SignupScreenState extends State<SignupScreen> {
           title: "Password",
           hinttext: "************",
           titleon: true,
-          icon: SvgPicture.asset(
-            "assets/icons/lock.svg",
-            height: 18,
-            width: 19,
-            fit: BoxFit.scaleDown,
-          ),
+          icon: lockIcon,
         ),
          SizedBox(
           height: context.isTablet ? gap4 : gap,
@@ -105,17 +113,17 @@ class _SignupScreenState extends State<SignupScreen> {
           runAlignment: WrapAlignment.center,
           children: [
             SocialButtons(
-              img: "assets/icons/fb.svg",
+              img: "assets/icons/svg/fbicon.svg",
               height: socialHeight,
               width: socialWidth,
             ),
             SocialButtons(
-              img: "assets/icons/google.svg",
+              img: "assets/icons/svg/googleicon.svg",
               height: socialHeight,
               width: socialWidth,
             ),
             SocialButtons(
-              img: "assets/icons/apple.svg",
+              img: "assets/icons/svg/appleicon.svg",
               height: socialHeight,
               width: socialWidth,
             ),

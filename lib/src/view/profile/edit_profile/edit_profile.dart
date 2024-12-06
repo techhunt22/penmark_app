@@ -33,6 +33,25 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       alignment: Alignment.topCenter,
     );
   }
+  final Widget personIcon = SvgPicture.asset(
+    "assets/icons/svg/person.svg",
+    height: 15,
+    width: 19,
+    fit: BoxFit.scaleDown,
+  );
+  final Widget mailIcon = SvgPicture.asset(
+    "assets/icons/svg/mail.svg",
+    height: 15,
+    width: 19,
+    fit: BoxFit.scaleDown,
+  );
+  final Widget phoneIcon = SvgPicture.asset(
+    "assets/icons/svg/phone.svg",
+    height: 15,
+    width: 19,
+    fit: BoxFit.scaleDown,
+  );
+
   @override
   void dispose() {
     // Dispose controller to prevent memory leaks
@@ -61,7 +80,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Appbar2(
-                      icon: "assets/icons/editprofile.png",
+                      icon: "assets/icons/svg/editprofileicon.svg",
                       text: "Edit Profile",
                     ),
 
@@ -92,11 +111,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       titleon: true,
                       suffixon: true,
                       title: "Full Name",
-                      icon: Image.asset(
-                        "assets/icons/profileicon.png",
-                        color: AppColors.warmgray,
-                      ),
-                      suffixicon: Image.asset("assets/icons/edit.png"),
+                      icon: personIcon,
+                      suffixicon: Image.asset("assets/icons/png/edit.png"),
                     ),
                     SizedBox(
                       height: gap1,
@@ -110,11 +126,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       titleon: true,
                       suffixon: true,
                       title: "Email",
-                      icon: Image.asset(
-                        "assets/icons/mail.png",
-                        color: AppColors.warmgray,
-                      ),
-                      suffixicon: Image.asset("assets/icons/edit.png"),
+                      icon: mailIcon,
+                      suffixicon: Image.asset("assets/icons/png/edit.png"),
                     ),
                     SizedBox(
                       height: gap1,
@@ -128,11 +141,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       titleon: true,
                       suffixon: true,
                       title: "Number",
-                      icon: Image.asset(
-                        "assets/icons/phone.png",
-                        color: AppColors.warmgray,
-                      ),
-                      suffixicon: Image.asset("assets/icons/edit.png"),
+                      icon: phoneIcon,
+                      suffixicon: Image.asset("assets/icons/png/edit.png"),
                     ),
                     SizedBox(
                       height: gap2  ,

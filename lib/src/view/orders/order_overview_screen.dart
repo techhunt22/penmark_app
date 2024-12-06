@@ -62,28 +62,33 @@ class OrderOverviewScreen extends StatelessWidget {
                   orderSummarWidget(),
 
                   pricingWidget(),
-                  totalAmountWidget()
+                  totalAmountWidget(),
+                  const SizedBox(
+                    height: gap2,
+                  ),
+                  Center(
+                    child: CustomButton(
+                      onPressed: () {
+                        print("=> paymentmethod");
 
+                        context.push('/paymentmethod');
+                      },
+                      text: "Next",
+                      color: AppColors.orangesoft,
+                      borderradius: 12,
+                      height: 58,
+                      width: 347,
+                      fontsize: AppFontSize.titlesmall,
+                    ),
+                  ),
                 ],
               ),
             ),
           ),
         ),
       ]),
-      floatingActionButton: CustomButton(
-        onPressed: () {
-          print("=> paymentmethod");
-
-          context.push('/paymentmethod');
-        },
-        text: "Next",
-        color: AppColors.orangesoft,
-        borderradius: 12,
-        height: 58,
-        width: 347,
-        fontsize: AppFontSize.titlesmall,
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      // floatingActionButton:
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

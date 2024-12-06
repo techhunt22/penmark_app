@@ -87,22 +87,38 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
                     height: gap1,
                   ),
                   buildPaymentOption(
-                    img: "assets/icons/card.png",
+                    img: "assets/icons/png/card.png",
                     text: 'Card',
                     value: 'card',
                   ),
                   buildPaymentOption(
-                    img: "assets/icons/paypal.png",
+                    img: "assets/icons/png/paypal.png",
                     text: 'Paypal',
                     value: 'paypal',
                   ),
                   buildPaymentOption(
-                    img: "assets/icons/cash.png",
+                    img: "assets/icons/png/cash.png",
                     text: 'Cash on Delivery',
                     value: 'cash',
                   ),
+                  const SizedBox(
+                    height: gap4,
+                  ),
+                  Center(
+                    child: CustomButton(
+                      onPressed: () {
+                        print("=> cardpayment");
 
-
+                        context.push('/cardpayment');
+                      },
+                      text: "Select Payment",
+                      color: AppColors.orangesoft,
+                      borderradius: 12,
+                      height: 58,
+                      width: 347,
+                      fontsize: AppFontSize.titlesmall,
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -110,20 +126,8 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
         ),
       ]),
 
-      floatingActionButton: CustomButton(
-        onPressed: () {
-          print("=> cardpayment");
-
-          context.push('/cardpayment');
-        },
-        text: "Select Payment",
-        color: AppColors.orangesoft,
-        borderradius: 12,
-        height: 58,
-        width: 347,
-        fontsize: AppFontSize.titlesmall,
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      // floatingActionButton:
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 

@@ -1,7 +1,7 @@
 import 'package:coloring_app/constants/padding.dart';
 import 'package:flutter/material.dart';
-import '../../../../constants/color_constants.dart';
-import '../../../../constants/size_constant.dart';
+import '../../../constants/color_constants.dart';
+import '../../../constants/size_constant.dart';
 
 class PreviewScreen extends StatefulWidget {
   const PreviewScreen({super.key});

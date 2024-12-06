@@ -35,6 +35,13 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
       alignment: Alignment.topCenter,
     );
   }
+  final Widget lockIcon = SvgPicture.asset(
+    "assets/icons/svg/lock.svg",
+    height: 15,
+    width: 19,
+    fit: BoxFit.scaleDown,
+
+  );
   @override
   void dispose() {
     // Dispose controller to prevent memory leaks
@@ -58,7 +65,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Appbar2(
-                    icon: "assets/icons/changepassword.png",
+                    icon: "assets/icons/svg/changepasswordicon.svg",
                     text: "Change Password",
                   ),
                   SizedBox(
@@ -72,9 +79,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                     title: "Current Password",
                     hinttext: "************",
                     titleon: true,
-                    icon: Image.asset(
-                      "assets/icons/lock.png",
-                    ),
+                    icon: lockIcon
                   ),
                   SizedBox(
                     height: gap1,
@@ -87,9 +92,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                     title: "New Password",
                     hinttext: "************",
                     titleon: true,
-                    icon: Image.asset(
-                      "assets/icons/lock.png",
-                    ),
+                    icon: lockIcon
                   ),
                   SizedBox(
                     height: gap1,
@@ -102,9 +105,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                     title: "Confirm New Password",
                     hinttext: "************",
                     titleon: true,
-                    icon: Image.asset(
-                      "assets/icons/lock.png",
-                    ),
+                    icon: lockIcon
                   ),
                   Spacer(),
                   Row(

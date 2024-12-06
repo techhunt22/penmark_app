@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../constants/color_constants.dart';
@@ -31,8 +32,8 @@ class RecentActivityHeader extends StatelessWidget {
           child: CircleAvatar(
               radius: 22,
               backgroundColor: AppColors.white,
-              child: Image.asset(
-                "assets/icons/bell.png",
+              child: SvgPicture.asset(
+                "assets/icons/svg/bellicon.svg",
               )),
         ),
       ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../constants/color_constants.dart';
@@ -32,10 +33,9 @@ class Appbar2 extends StatelessWidget {
               )),
         ),
         Spacer(),
-        Image.asset(
+        SvgPicture.asset(
           icon,
-          color: AppColors.white,
-          scale: 0.9,
+          height: 22,
         ),
         SizedBox(
           width: gap,

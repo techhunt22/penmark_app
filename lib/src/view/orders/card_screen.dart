@@ -149,8 +149,24 @@ class _CardPaymentScreenState extends State<CardPaymentScreen> {
                       title: "Card Holder",
                       titleon: true
                   ),
+                  const SizedBox(
+                    height: gap3,
+                  ),
+                  Center(
+                    child: CustomButton(
+                      onPressed: () {
+                        print("=> ");
 
-
+                        context.push('/receipt');
+                      },
+                      text: "Confirm Payment",
+                      color: AppColors.orangesoft,
+                      borderradius: 12,
+                      height: 58,
+                      width: 347,
+                      fontsize: AppFontSize.titlesmall,
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -158,20 +174,8 @@ class _CardPaymentScreenState extends State<CardPaymentScreen> {
         ),
       ]),
 
-      floatingActionButton: CustomButton(
-        onPressed: () {
-          print("=> ");
-
-          context.push('/receipt');
-        },
-        text: "Confirm Payment",
-        color: AppColors.orangesoft,
-        borderradius: 12,
-        height: 58,
-        width: 347,
-        fontsize: AppFontSize.titlesmall,
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      // floatingActionButton:
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
 
   }
@@ -208,7 +212,7 @@ Container cardContainer() {
             ),
           ],
         ),
-        Image.asset("assets/icons/mastercard.png")
+        Image.asset("assets/icons/png/mastercard.png")
       ],
     ),
   );

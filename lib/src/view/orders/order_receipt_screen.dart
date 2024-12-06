@@ -101,29 +101,34 @@ class OrderReceiptScreen extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            // Circular Icon
+
                             Positioned(
                               top: -32, // Offset above the container
                               left: 0,
                               right: 0,
                               child: CircleAvatar(
                                 radius: 32,
-                                child: Image.asset("assets/icons/tick.png")
+                                child: Image.asset("assets/icons/png/tick.png")
                               ),
                             ),
 
                             Positioned(
-                              bottom: -32, // Offset above the container
+                              bottom: -30, // Offset above the container
                               left: 0,
                               right: 0,
-                              child:  CircleAvatar(
-                                  radius: 32,
-                                  backgroundColor: AppColors.transparent,
-                                  child: Image.asset("assets/icons/download.png")
+                              child:  GestureDetector(
+                                onTap: (){},
+                                child: CircleAvatar(
+                                    radius: 32,
+                                    backgroundColor: AppColors.transparent,
+                                    child: Image.asset("assets/icons/png/download.png")
+                                ),
                               ),
                             ),
+
                           ],
                         ),
+                        const SizedBox(height: gap4),
                       ])),
             ),
           )
@@ -158,7 +163,7 @@ Widget _buildDetailRow(String label, String value) {
               alignment: Alignment.topRight, // Align content to top-right
               child: Text(
                 value,
-                maxLines: 1,
+                maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.right,
                 style: const TextStyle(

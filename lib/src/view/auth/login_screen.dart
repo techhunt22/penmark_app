@@ -25,17 +25,18 @@ class _LoginScreenState extends State<LoginScreen> {
 
 // Cache SVG widgets
   final Widget mailIcon = SvgPicture.asset(
-    "assets/icons/mail.svg",
+    "assets/icons/svg/mail.svg",
     height: 15,
     width: 19,
     fit: BoxFit.scaleDown,
   );
 
   final Widget lockIcon = SvgPicture.asset(
-    "assets/icons/lock.svg",
-    height: 18,
+    "assets/icons/svg/lock.svg",
+    height: 15,
     width: 19,
     fit: BoxFit.scaleDown,
+
   );
 
   @override
@@ -53,12 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
             validator: (p0) {
               return null;
             },
-            icon: SvgPicture.asset(
-              "assets/icons/mail.svg",
-              height: 15,
-              width: 19,
-              fit: BoxFit.scaleDown,
-            ),
+            icon: mailIcon,
             hinttext: "Email or phone number",
             title: "Email/Number",
             titleon: true),
@@ -73,12 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
           title: "Password",
           hinttext: "************",
           titleon: true,
-          icon: SvgPicture.asset(
-            "assets/icons/lock.svg",
-            height: 18,
-            width: 19,
-            fit: BoxFit.scaleDown,
-          ),
+          icon: lockIcon
         ),
         SizedBox(
           height: context.isTablet ? gap4 : gap,
@@ -123,17 +114,17 @@ class _LoginScreenState extends State<LoginScreen> {
           crossAxisAlignment:  WrapCrossAlignment.center,
           children: [
             SocialButtons(
-              img: "assets/icons/fb.svg",
+              img: "assets/icons/svg/fbicon.svg",
               height: socialHeight,
               width: socialWidth,
             ),
             SocialButtons(
-              img: "assets/icons/google.svg",
+              img: "assets/icons/svg/googleicon.svg",
               height: socialHeight,
               width: socialWidth,
             ),
             SocialButtons(
-              img: "assets/icons/apple.svg",
+              img: "assets/icons/svg/appleicon.svg",
               height: socialHeight,
               width: socialWidth,
             ),

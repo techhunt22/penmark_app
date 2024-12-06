@@ -24,6 +24,18 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
     "assets/images/background2.svg",
     fit: BoxFit.cover,   alignment: Alignment.topCenter,
   );
+  final Widget personIcon = SvgPicture.asset(
+    "assets/icons/svg/person.svg",
+    height: 15,
+    width: 19,
+    fit: BoxFit.scaleDown,
+  );
+  final Widget mailIcon = SvgPicture.asset(
+    "assets/icons/svg/mail.svg",
+    height: 15,
+    width: 19,
+    fit: BoxFit.scaleDown,
+  );
 
   final TextEditingController controller = TextEditingController();
 
@@ -58,7 +70,7 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Appbar2(
-                      icon: "assets/icons/helpsupport.png",
+                      icon: "assets/icons/svg/help.svg",
                       text: "Help & Support",
                     ),
                     SizedBox(
@@ -105,10 +117,7 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
                       titleon: true,
                       suffixon: false,
                       title: "Name",
-                      icon: Image.asset(
-                        "assets/icons/profileicon.png",
-                        color: AppColors.warmgray,
-                      ),
+                      icon: personIcon
 
                     ),
 
@@ -125,10 +134,7 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
                       titleon: true,
                       suffixon: false,
                       title: "Name",
-                      icon: Image.asset(
-                        "assets/icons/mail.png",
-                        color: AppColors.warmgray,
-                      ),
+                      icon: mailIcon
                     ),
                     SizedBox(
                       height: gap1,

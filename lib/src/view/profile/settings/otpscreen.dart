@@ -72,7 +72,7 @@ class _OtpScreenState extends State<OtpScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Appbar2(
-                    icon: "assets/icons/verification.png",
+                    icon: "assets/icons/svg/verificationicon.svg",
                     text: "Verification",
                   ),
                   SizedBox(
@@ -229,7 +229,7 @@ void showotpDialog(BuildContext context) {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset("assets/icons/tickicon.png"),
+            Image.asset("assets/icons/png/tickicon.png"),
             SizedBox(height: gap1),
             Center(
                 child: Text(

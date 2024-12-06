@@ -82,8 +82,11 @@ class DashboardScreen extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(height: gap1),
+
                             Center(child: QuickAccessWidget()),
+
                             const SizedBox(height: gap1),
+
                             Text(
                               "Recent Activity",
                               style: TextStyle(
@@ -102,9 +105,17 @@ class DashboardScreen extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(height: gap1),
+
+
                             RecentActivityWidget(),
+
                             const SizedBox(height: gap1),
-                          ])),
+
+
+
+                          ]
+                      )
+                  ),
                 ],
               ),
             ),

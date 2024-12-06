@@ -1,6 +1,9 @@
 import 'package:coloring_app/constants/padding.dart';
+import 'package:coloring_app/constants/responsive.dart';
+import 'package:coloring_app/src/view/auth/components/forgot_password_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../constants/color_constants.dart';
 import '../../../constants/font_family.dart';
@@ -66,9 +69,9 @@ class _TemplateCollectionScreenState extends State<TemplateCollectionScreen> {
                         Expanded(
                           child: SearchField(
                             controller: _controller,
-                            hinttext: "Search",
+                            hinttext: "Search...",
                             suffixicon: Icon(
-                              Icons.search_sharp,
+                              Icons.search_rounded,
                               color: AppColors.purple,
                             ),
                           ),
@@ -77,8 +80,8 @@ class _TemplateCollectionScreenState extends State<TemplateCollectionScreen> {
                         CircleAvatar(
                             radius: 30,
                             backgroundColor: AppColors.white,
-                            child: Image.asset(
-                              "assets/icons/filter.png",
+                            child: SvgPicture.asset(
+                              "assets/icons/svg/filtericon.svg",
                             )),
 
                       ],
@@ -86,7 +89,7 @@ class _TemplateCollectionScreenState extends State<TemplateCollectionScreen> {
 
 
 
-                    buildListView(),
+                    buildListView(context),
                   ],
                 ),
               ),
@@ -98,37 +101,18 @@ class _TemplateCollectionScreenState extends State<TemplateCollectionScreen> {
   }
 
 }
-// Row collectionAppbar() {
-//   return Row(
-//     mainAxisAlignment: MainAxisAlignment.end,
-//     crossAxisAlignment: CrossAxisAlignment.start,
-//     children: [
-//       Image.asset(
-//         "assets/icons/profile.png",
-//       ),
-//       SizedBox(
-//         width: 15,
-//       ),
-//       CircleAvatar(
-//           backgroundColor: AppColors.white,
-//           child: Image.asset(
-//             "assets/icons/bell.png",
-//           )),
-//     ],
-//   );
-// }
 
 // Listview for Templates Widget
-GridView buildListView() {
+GridView buildListView(BuildContext context) {
   return GridView.builder(
     physics: NeverScrollableScrollPhysics(),
     shrinkWrap: true,
     padding: EdgeInsets.only(top:15, bottom: 60),
     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-      crossAxisCount: 2, // Number of columns
+      crossAxisCount:  context.isTablet? 3: 2, // Number of columns
       crossAxisSpacing: 5,
-      mainAxisSpacing: 10, // Vertical space between cards
-      childAspectRatio: 0.8, // Aspect ratio of the car
+      mainAxisSpacing: 10,
+      childAspectRatio: 0.75,
     ),
     scrollDirection: Axis.vertical,
     itemCount: 6,
@@ -144,7 +128,8 @@ GridView buildListView() {
       ];
       return GestureDetector(
         onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) =>CollectionDetailScreen()));
+          context.push('/templatesdetails');
+
         },
 
         child: imgContainer(
@@ -160,8 +145,10 @@ GridView buildListView() {
 Widget imgContainer({required String no, required String text}) {
   return Card(
     clipBehavior: Clip.antiAlias,
-
+    elevation: 0,
     color: AppColors.white,
+    shape: RoundedRectangleBorder(
+        borderRadius: BorderRadiusDirectional.circular(15)),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       // Stretch the columns to fit the card
@@ -170,7 +157,7 @@ Widget imgContainer({required String no, required String text}) {
         Expanded(
           child: Image.asset(
             "assets/images/slider$no.png",
-            fit: BoxFit.fill, // Cover the entire space of the container
+            fit: BoxFit.fitHeight, // Cover the entire space of the container
           ),
         ),
         Padding(

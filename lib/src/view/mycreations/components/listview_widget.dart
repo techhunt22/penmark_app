@@ -16,7 +16,7 @@ class ListviewWidget extends StatelessWidget {
         physics: NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         itemBuilder:(context, index) {
-          return    Container(
+          return Container(
             padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
             margin: EdgeInsets.symmetric(vertical: 5),
             decoration: BoxDecoration(
@@ -61,22 +61,20 @@ class ListviewWidget extends StatelessWidget {
                     alignment: WrapAlignment.end,
                     children: [
                       iconButton(
-                          ontap: (){},
-                          img: "assets/icons/edit.png",
-                          color: AppColors.brightblue
-                      ),
+                          ontap: (){
+                            context.push('/coloring');
+                          },
+                          img: "assets/icons/svg/editicon.svg",
+                          color: AppColors.brightblue),
                       iconButton(
                           ontap: (){
                             context.push('/printscreen');
                           },
-                          img: "assets/icons/print2.png",
-                          color: AppColors.orangesoft
-                      ),
+                          img: "assets/icons/svg/printicon.svg",
+                          color: AppColors.orangesoft),
                       iconButton(
                           ontap: (){},
-                          img: "assets/icons/delete.png",
-                          color: AppColors.red
-                      ),
+                          img: "assets/icons/svg/deleteicon.svg", color: AppColors.red),
                     ],
                   ),
                 ),

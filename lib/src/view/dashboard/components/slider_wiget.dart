@@ -1,86 +1,78 @@
-
-// Listview for Templates Widget
-import 'package:coloring_app/constants/responsive.dart';
+import 'package:coloring_app/constants/color_constants.dart';
+import 'package:coloring_app/constants/font_family.dart';
+import 'package:coloring_app/constants/font_size.dart';
+import 'package:coloring_app/src/view/auth/components/forgot_password_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-import '../../../../constants/color_constants.dart';
-import '../../../../constants/font_family.dart';
-import '../../../../constants/font_size.dart';
 class SliderWidget extends StatelessWidget {
   const SliderWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 300,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        padding: EdgeInsets.symmetric(horizontal: 15),
-        shrinkWrap: true,
-        physics: const BouncingScrollPhysics(), // Changed to allow scrolling
-        itemCount: 6,
-        itemBuilder: (context, index) {
-          List text = [
-            "Floral Blooms Collection",
-            "Portraits of Women",
-            "Hands at Work",
-            "Whimsical Dolls",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-          ];
-          return ImgContainer(
-            no: "${index + 1}",
-            text: text[index],
-          );
-        },
-      ),
-    );
-  }
-}
+    final List<String> items = [
+      'Floral Blooms Collection ',
+      'Portraits of Women',
+      'Hands at Work',
+      'Whimsical Dolls',
+      'Lorem Ipsum',
+      'Lorem Ipsum',
+    ];
 
-class ImgContainer extends StatelessWidget {
-  final String no;
-  final String text;
+    return GestureDetector(
 
-  const ImgContainer({
-    super.key,
-    required this.no,
-    required this.text,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadiusDirectional.circular(18)
-      ),
-      color: AppColors.white,
+      onTap: (){
+        context.push('/templatesdetails');
+      },
       child: SizedBox(
-        width:230,  // Adjust width as needed
-        height:256,  // Adjust width as needed
-        child: Column(
-          children: [
-            Image.asset(
-              "assets/images/slider$no.png",
-              fit: BoxFit.cover,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(5),
-              child: Text(
-                text,
-                textAlign: TextAlign.center,
-                overflow: TextOverflow.ellipsis,
-                maxLines: 1,
-                style: TextStyle(
-                  fontSize: AppFontSize.bodylarge,
-                  fontWeight: AppFonts.regular,
-                ),
+        height: 300,
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: items.length,
+          itemBuilder: (context, index) {
+            return Container(
+              margin: EdgeInsets.only(left: 15,right: 5),
+              width: 230, // Increase the width as desired
+              decoration: BoxDecoration(
+                color: AppColors.white,
+                borderRadius: BorderRadiusDirectional.circular(15),
               ),
-            ),
-          ],
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(15),
+                        topRight: Radius.circular(15),
+                      ),
+                      child: SizedBox(
+                        width: double.infinity,
+                        child: Image.asset(
+                          'assets/images/slider${index + 1}.png',
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      items[index],
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: AppFontSize.bodylarge,
+                        fontWeight: AppFonts.regular,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            );
+          },
         ),
       ),
     );
   }
 }
-

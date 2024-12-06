@@ -45,9 +45,9 @@ class ProfileScreen extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Image.asset(
-                          "assets/icons/settingicon.png",
-                          color: AppColors.white,
+                        SvgPicture.asset(
+                          "assets/icons/svg/settingsicon.svg",
+                          height: 22,
                         ),
                         SizedBox(
                           width: gap,
@@ -87,11 +87,11 @@ class ProfileScreen extends StatelessWidget {
                           ];
                           List img = [
                             "edit",
-                            "orderhistory",
-                            "recenthistory",
-                            "settingicon",
-                            "help",
-                            "logout",
+                            "orderhistoryicon",
+                            "recentactivityicon",
+                            "settingsicon",
+                            "helpicon",
+                            "logouticon",
                           ];
 
                           return ProfileListWidget(
@@ -103,7 +103,7 @@ class ProfileScreen extends StatelessWidget {
                               {context.push(pages[index]);}
                               else{
                                 showCustomDialog(context,
-                                    img: "assets/icons/logoutdialog.png",
+                                    img: "assets/icons/png/logoutdialog.png",
                                     buttoncolor: AppColors.orangesoft,
                                     title: "Log Out",
                                     message: "Are you sure you want to log out?",

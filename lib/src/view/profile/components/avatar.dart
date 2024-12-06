@@ -22,7 +22,7 @@ class Avatar extends StatelessWidget {
                 alignment: Alignment.bottomRight,
                 child: CircleAvatar(
                   backgroundColor: AppColors.purple,
-                  child: Image.asset("assets/icons/edit.png"),
+                  child: Image.asset("assets/icons/png/edit.png"),
                 ),
               )
             ])),

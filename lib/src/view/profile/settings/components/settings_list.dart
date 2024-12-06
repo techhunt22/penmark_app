@@ -34,7 +34,7 @@ class _SettingListWidgetState extends State<SettingListWidget> {
         child: Row(
           children: [
             Image.asset(
-              "assets/icons/${widget.img}.png",
+              "assets/icons/png/${widget.img}.png",
               scale: 0.9,color: AppColors.white,
             ),
 

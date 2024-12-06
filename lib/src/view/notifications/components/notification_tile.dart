@@ -54,7 +54,7 @@ class NotificationListWidget extends StatelessWidget {
             ];
             List img = [
               "changepassword",
-              "palettebottombar",
+              "paletteicon",
               "van",
             ];
             List color = [
@@ -86,7 +86,7 @@ class NotificationListWidget extends StatelessWidget {
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: Image.asset(
-                            "assets/icons/${img[index]}.png",color: AppColors.white,
+                            "assets/icons/png/${img[index]}.png",color: AppColors.white,
                           ),
                         ),
                       ),

@@ -1,6 +1,8 @@
 import 'package:coloring_app/constants/padding.dart';
+import 'package:coloring_app/constants/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../constants/color_constants.dart';
 import '../../../../constants/font_family.dart';
@@ -8,6 +10,7 @@ import '../../../../constants/font_size.dart';
 import '../../../../constants/size_constant.dart';
 import '../colorpage/color_screen.dart';
 import '../widgets/appbar.dart';
+import '../widgets/back_button_widget.dart';
 
 class CollectionDetailScreen extends StatefulWidget {
   const CollectionDetailScreen({super.key});
@@ -36,26 +39,53 @@ class _CollectionDetailScreenState extends State<CollectionDetailScreen> {
           ),
           SafeArea(
             bottom: false,
-            child: Padding(
-              padding: AppPadding.globalpadding,
-              child: Column(
-                children: [
-                  AppbarWidget(),
-                  SizedBox(
-                    height: gap1,
-                  ),
-                  Text(
-                    "Explore\nTemplates",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontWeight: AppFonts.regular,
-                        fontSize: AppFontSize.headlinelarge),
-                  ),
-                  SizedBox(
-                    height: gap1,
-                  ),
-                  Expanded(child: buildListView()),
-                ],
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: AppPadding.globalpadding,
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 15,
+                    ),
+                   Row(
+                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                     crossAxisAlignment: CrossAxisAlignment.end,
+                     children: [
+                       BackButtonWidget(),
+
+
+
+                       GestureDetector(
+                         onTap: () {
+                           context.push('/notification');
+                         },
+                         child: CircleAvatar(
+                             radius: 22,
+                             backgroundColor: AppColors.white,
+                             child: SvgPicture.asset(
+                               "assets/icons/svg/bellicon.svg",
+                             )),
+                       ),
+
+                     ],
+                   ),
+
+                    SizedBox(
+                      height: gap1,
+                    ),
+                    Text(
+                      "Explore\nTemplates",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontWeight: AppFonts.regular,
+                          fontSize: AppFontSize.headlinelarge),
+                    ),
+                    SizedBox(
+                      height: gap1,
+                    ),
+                    buildListView(context),
+                  ],
+                ),
               ),
             ),
           ),
@@ -66,13 +96,15 @@ class _CollectionDetailScreenState extends State<CollectionDetailScreen> {
 }
 
 // Listview for Templates Widget
-GridView buildListView() {
+GridView buildListView(BuildContext context) {
   return GridView.builder(
+    physics: NeverScrollableScrollPhysics(),
+    shrinkWrap: true,
     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-      crossAxisCount: 2, // Number of columns
+      crossAxisCount: context.isTablet? 3: 2, // Number o, // Number of columns
       crossAxisSpacing: 5,
       mainAxisSpacing: 10, // Vertical space between cards
-      childAspectRatio: 0.8, // Aspect ratio of the car
+      childAspectRatio: 0.75, // Aspect ratio of the car
     ),
     scrollDirection: Axis.vertical,
     itemCount: 4,
@@ -89,11 +121,7 @@ GridView buildListView() {
         onTap: () {},
         child: GestureDetector(
           onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ColoringScreen(),
-                ));
+           context.push('/coloring');
           },
           child: imgContainer(
             no: "${index + 1}",
@@ -110,6 +138,7 @@ Widget imgContainer({required String no, required String text}) {
   return Card(
     clipBehavior: Clip.antiAlias,
     color: AppColors.white,
+    elevation: 0,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       // Stretch the columns to fit the card
@@ -119,10 +148,11 @@ Widget imgContainer({required String no, required String text}) {
             fit: StackFit.expand, // Ensures the stack fills the space
 
             children: [
+
               Image.asset(
                 "assets/images/temp$no.png",
-                fit: BoxFit.fill, // Cover the entire space of the container
               ),
+
               Positioned(
                 top: 8, // Adjust the position to fit your design
                 right: 8, // Adjust the position to fit your design
@@ -131,17 +161,10 @@ Widget imgContainer({required String no, required String text}) {
                     // Handle the button tap
                     print("Button tapped!");
                   },
-                  child: Container(
-                    padding: EdgeInsets.all(4),
-                    decoration: BoxDecoration(
-                      color: Colors.orange, // Background color of the button
-                      shape: BoxShape.circle, // Circular button
-                    ),
-                    child: Icon(
-                      Icons.edit, // Icon inside the button
-                      color: Colors.white, // Icon color
-                      size: 20, // Icon size
-                    ),
+                  child: CircleAvatar(
+                    radius: 18,
+                    backgroundColor: AppColors.yellowvibrant,
+                    child: SvgPicture.asset("assets/icons/svg/editbrush.svg", height: 20,)
                   ),
                 ),
               ),

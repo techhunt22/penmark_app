@@ -86,8 +86,8 @@ class _MycreationScreenState extends State<MycreationScreen> {
                             });
                             print("IS GRIDVIEW");
                           },
-                            img: "assets/icons/gridviewicon.png",
-                            color:  isGridview  ? AppColors.purple : AppColors.white),
+                            img: "assets/icons/svg/gridviewicon.svg",
+                            color:  isGridview  ? AppColors.purple.withOpacity(0.2) : AppColors.white),
                         SizedBox(
                           width: 5,
                         ),
@@ -99,8 +99,8 @@ class _MycreationScreenState extends State<MycreationScreen> {
                               print("IS LISTVIEW");
 
                             },
-                            img: "assets/icons/listviewicon.png",
-                            color:isGridview  ? AppColors.white: AppColors.purple  ),
+                            img: "assets/icons/svg/listviewicon.svg",
+                            color:isGridview  ? AppColors.white: AppColors.purple.withOpacity(0.2)  ),
                       ],
                     ),
 
@@ -129,8 +129,8 @@ Widget viewIcons({required String img, required Color color, required VoidCallba
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
           borderRadius: BorderRadiusDirectional.circular(6),
-          color: color.withOpacity(0.2)),
-      child: Image.asset(
+          color: color),
+      child: SvgPicture.asset(
         img,
       ),
     ),
@@ -142,10 +142,10 @@ Widget iconButton({required String img, required Color color,required VoidCallba
     onTap: ontap,
     child: CircleAvatar(
       radius: 15,
-      backgroundColor: color.withOpacity(0.2).withOpacity(0.2),
-      child: Image.asset(
+      backgroundColor: color.withOpacity(0.2),
+      child: SvgPicture.asset(
         img,
-        color: AppColors.black,
+        height: 15,
       ),
     ),
   );

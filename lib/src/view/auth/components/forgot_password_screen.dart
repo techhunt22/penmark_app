@@ -27,7 +27,12 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   );
   final TextEditingController _controller = TextEditingController();
 
-
+  final Widget mailIcon = SvgPicture.asset(
+    "assets/icons/svg/mail.svg",
+    height: 15,
+    width: 19,
+    fit: BoxFit.scaleDown,
+  );
   @override
   void dispose() {
     _controller.dispose();
@@ -63,12 +68,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                         validator: (p0) {
                           return null;
                         },
-                        icon: SvgPicture.asset(
-                          "assets/icons/mail.svg",
-                          height: 15,
-                          width: 19,
-                          fit: BoxFit.scaleDown,
-                        ),
+                        icon: mailIcon,
                         hinttext: "Email or phone number",
                         title: "Email/Number",
                         titleon: true),

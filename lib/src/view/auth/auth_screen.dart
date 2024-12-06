@@ -40,12 +40,19 @@ class _AuthScreenState extends State<AuthScreen> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
+
                   children: [
                     // Logo
-                    SizedBox(
-                      height: context.h(142),
-                      width: context.w(84),
-                      child: Image.asset("assets/icons/logo2.png"),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const SizedBox(width: gap1),
+                        SizedBox(
+                          height: context.h(142),
+                          width: context.w(84),
+                          child: SvgPicture.asset("assets/icons/svg/logo.svg"),
+                        ),
+                      ],
                     ),
                     const SizedBox(height: gap),
                     // TabBar

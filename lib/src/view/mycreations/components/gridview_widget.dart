@@ -1,3 +1,4 @@
+import 'package:coloring_app/constants/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -15,75 +16,85 @@ class GridViewWidget extends StatelessWidget {
     return GridView.builder(
       shrinkWrap: true,
       physics: NeverScrollableScrollPhysics(),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: context.isTablet ? 3 : 2,
         mainAxisSpacing: 16,
         crossAxisSpacing: 15,
-        childAspectRatio: 0.6,
+        childAspectRatio: 0.7,
       ),
-      itemCount: 5,
+      itemCount: 4,
       itemBuilder: (context, index) {
-        return Container(
-          decoration: BoxDecoration(
-            color: AppColors.white,
-            borderRadius: BorderRadius.circular(16),
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              // Image Container
-              ClipRRect(
-                borderRadius:
-                const BorderRadius.vertical(top: Radius.circular(16)),
-                child: Image.asset(
-                  "assets/images/sketch.png",
-                  height: 200, // Adjust height as needed
-                ),
-              ),
+        List text = [
+          "Floral Blooms Collection",
+          "Portraits of Women",
+          "Hands at Work",
+          "Whimsical Dolls",
+          "Lorem Ipsum",
 
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                // Add padding for content
-                child: Column(
-                  children: [
-                    Text(
-                      "Flower Dream",
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                        fontSize: AppFontSize.bodylarge,
-                        fontWeight: AppFonts.regular,
-                      ),
-                    ),
-                    const SizedBox(height: gap),
-                    // Action Buttons
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        iconButton(
-                            ontap: (){},
-                            img: "assets/icons/edit.png",
-                            color: AppColors.brightblue),
-                        iconButton(
-                            ontap: (){
-                              context.push('/printscreen');
-                            },
-                            img: "assets/icons/print2.png",
-                            color: AppColors.orangesoft),
-                        iconButton(
-                            ontap: (){},
-                            img: "assets/icons/delete.png", color: AppColors.red),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+        ];
+        return imgContainer(
+          no: "${index + 1}",
+          text: text[index],
+          context: context
         );
       },
     );
   }
-
 }
 
+Widget imgContainer({required String no, required String text, required BuildContext context}) {
+  return Card(
+    clipBehavior: Clip.antiAlias,
+    elevation: 0,
+    color: AppColors.white,
+    shape: RoundedRectangleBorder(
+        borderRadius: BorderRadiusDirectional.circular(15)),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      // Stretch the columns to fit the card
+
+      children: [
+        Expanded(
+          child: Image.asset(
+            "assets/images/temp$no.png",
+            fit: BoxFit.fill, // Cover the entire space of the container
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Text(
+            text,
+            textAlign: TextAlign.center,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 1,
+            style: TextStyle(
+                fontSize: AppFontSize.bodysmall2,
+                fontWeight: AppFonts.regular), // Ensure text is visible
+          ),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            iconButton(
+                ontap: (){
+                  context.push('/coloring');
+                },
+                img: "assets/icons/svg/editicon.svg",
+                color: AppColors.brightblue),
+            iconButton(
+                ontap: (){
+                  context.push('/printscreen');
+                },
+                img: "assets/icons/svg/printicon.svg",
+                color: AppColors.orangesoft),
+            iconButton(
+                ontap: (){},
+                img: "assets/icons/svg/deleteicon.svg", color: AppColors.red),
+          ],
+        ),
+
+        SizedBox(height: 10,),
+      ],
+    ),
+  );
+}

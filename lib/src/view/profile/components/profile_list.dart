@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../../../constants/color_constants.dart';
 import '../../../../constants/font_family.dart';
@@ -23,9 +24,10 @@ class ProfileListWidget extends StatelessWidget {
             borderRadius: BorderRadiusDirectional.circular(6)),
         child: Row(
           children: [
-            Image.asset(
-              "assets/icons/$img.png",
-              scale: 1,color: AppColors.white,
+            SvgPicture.asset(
+              "assets/icons/svg/$img.svg",
+              // scale: 1,color: AppColors.white,
+
             ),
             SizedBox(
               width: gap,

@@ -7,6 +7,10 @@ import 'package:coloring_app/src/view/splash/splash_screen.dart';
 import 'package:go_router/go_router.dart';
 import '../src/view/auth/components/new_password_screen.dart';
 import '../src/view/auth/components/verification.dart';
+import '../src/view/collection/collection_detail_screen.dart';
+import '../src/view/colorpage/color_screen.dart';
+import '../src/view/colorpage/preview_screen.dart';
+import '../src/view/colorpage/testing_color.dart';
 import '../src/view/notifications/notification_screen.dart';
 import '../src/view/orders/card_screen.dart';
 import '../src/view/orders/order_overview_screen.dart';
@@ -21,13 +25,17 @@ import '../src/view/profile/recentactivity/recent_activity_screen.dart';
 import '../src/view/profile/settings/change_password_screen.dart';
 import '../src/view/profile/settings/otpscreen.dart';
 import '../src/view/profile/settings/settings_screen.dart';
-
+import '../src/view/splash/logo_screen.dart';
 
 final GoRouter router = GoRouter(
-  initialLocation: '/dashboard',
+  initialLocation: '/',
   routes: <RouteBase>[
     GoRoute(
       path: '/',
+      builder: (context, state) => const LogoScreen(),
+    ),
+    GoRoute(
+      path: '/splash',
       builder: (context, state) => const SplashScreen(),
     ),
     GoRoute(
@@ -74,11 +82,11 @@ final GoRouter router = GoRouter(
       path: '/notification',
       builder: (context, state) => const NotificationScreen(),
     ),
-  GoRoute(
+    GoRoute(
       path: '/recentactivity',
       builder: (context, state) => const RecentActivityScreen(),
     ),
- GoRoute(
+    GoRoute(
       path: '/orderhistory',
       builder: (context, state) => const OrderHistoryScreen(),
     ),
@@ -91,8 +99,20 @@ final GoRouter router = GoRouter(
       builder: (context, state) => const TemplateCollectionScreen(),
     ),
     GoRoute(
+      path: '/templatesdetails',
+      builder: (context, state) => const CollectionDetailScreen(),
+    ),
+    GoRoute(
       path: '/orderdetail',
       builder: (context, state) => const OrderDetailsScreen(),
+    ),
+    GoRoute(
+      path: '/coloring',
+      builder: (context, state) => const ColoringScreen(),
+    ),
+    GoRoute(
+      path: '/preview',
+      builder: (context, state) => const PreviewScreen(),
     ),
     GoRoute(
       path: '/printscreen',
@@ -106,12 +126,17 @@ final GoRouter router = GoRouter(
       path: '/paymentmethod',
       builder: (context, state) => const PaymentMethodScreen(),
     ),
-  GoRoute(
+    GoRoute(
       path: '/cardpayment',
       builder: (context, state) => const CardPaymentScreen(),
-    ),GoRoute(
+    ),
+    GoRoute(
       path: '/receipt',
       builder: (context, state) => const OrderReceiptScreen(),
     ),
+    // GoRoute(
+    //   path: '/test',
+    //   builder: (context, state) => const DrawingPage(),
+    // ),
   ],
 );

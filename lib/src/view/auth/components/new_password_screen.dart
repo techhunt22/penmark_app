@@ -24,7 +24,13 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
     "assets/images/background.svg",
     fit: BoxFit.fitHeight,
   );
+  final Widget lockIcon = SvgPicture.asset(
+    "assets/icons/svg/lock.svg",
+    height: 15,
+    width: 19,
+    fit: BoxFit.scaleDown,
 
+  );
   final TextEditingController newpass = TextEditingController();
   final TextEditingController repass = TextEditingController();
 
@@ -71,12 +77,7 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                       title: "Password",
                       hinttext: "************",
                       titleon: true,
-                      icon: SvgPicture.asset(
-                        "assets/icons/lock.svg",
-                        height: 18,
-                        width: 19,
-                        fit: BoxFit.scaleDown,
-                      ),
+                      icon: lockIcon,
                     ), CustomPasswordField(
                       controller: repass,
                       validator: (p0) {
@@ -85,12 +86,7 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                       title: "Password",
                       hinttext: "************",
                       titleon: true,
-                      icon: SvgPicture.asset(
-                        "assets/icons/lock.svg",
-                        height: 18,
-                        width: 19,
-                        fit: BoxFit.scaleDown,
-                      ),
+                      icon: lockIcon,
                     ),
 
 
@@ -151,7 +147,7 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-             Image.asset("assets/icons/tickicon.png"),
+             Image.asset("assets/icons/png/tickicon.png"),
               SizedBox(height: gap1),
 
 
